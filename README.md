@@ -9,3 +9,10 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 =======
 # adilo-test
 >>>>>>> 7257cb88e68f5a557be4986cf6eb9db9bedc3284
+
+#to get started
+>>>>>>>Clone the repo
+>>>>>>>npm install dependencies
+>>>>>>>npm dev to launch the server
+>>>>>>>Open the address provided on the terminal to view
+>>>>>>>Happy viewing

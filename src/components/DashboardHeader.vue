@@ -12,7 +12,8 @@ const emit = defineEmits(['recording'])
            {name: 'Third one', id: 3},
            {name: 'Last one', id: 4}
       ],
-      recordingOptions: {screen: true, video: { facingMode: "user" }, audio: false},
+      recordingOptions: {screen: true, video: { facingMode: "user", width: { min: 1280 },
+    height: { min: 720 } }, audio: false},
       showModal: false,
       chosenProject: ''
 })
@@ -22,32 +23,26 @@ const emit = defineEmits(['recording'])
  }
  function startRecording()
  {
-      if (navigator.getUserMedia)
+      if(data.chosenProject == '' || data.chosenProject == undefined || data.chosenProject == null)
       {
-           let stream = window.navigator.mediaDevices.getUserMedia(data.recordingOptions)
-           .then( request => {
-               // console.log("streaming available")
-               emit('recording', request)
-           })
-           .catch( (err) => {
-                alert(err)
-                console.log(err)
-           })
+           alert("Choose a project")
       }else{
-           alert("Not available")
+           if (navigator.getUserMedia)
+           {
+                let stream = window.navigator.mediaDevices.getUserMedia(data.recordingOptions)
+                .then( request => {
+                    // console.log("streaming available")
+                    emit('recording', request)
+                })
+                .catch( (err) => {
+                     alert(err)
+                     console.log(err)
+                })
+           }else{
+                alert("Not available")
+           }
       }
       
-       
-      // navigator.mediaDevices.getDisplayMedia(data.recordingOptions)
-      // .catch(err => { console.error("Error:" + err); return null; });
-      // navigator.mediaDevices.getUserMedia(data.recordingOptions)
-      // .then( (stream) => {
-      //      emit('recording', stream)
-      //      // console.log(stream)
-      // }).catch( (err) => {
-      //      console.log(err)
-      //      alert(err)
-      // })
  }
  function closeModal()
  {
@@ -56,10 +51,10 @@ const emit = defineEmits(['recording'])
 </script>
 <template>
        <section class="bg-white py-4 my-2">
-            <div class="flex justify-start items-center gap-20 mx-7">
+            <div class="flex justify-start items-center gap-52 mx-7">
                  <div>
-                      <p class="text-sm text-gray-500 my-2 ">Snapbyte > My Recordings</p>
-                      <h1 class="text-2xl">My Recordings {{combined}}</h1>
+                      <p class="text-sm text-gray-500 my-2 ">Snapbyte <span class="text-lg">&#8250;</span> My Recordings</p>
+                      <h1 class="text-2xl">My Recordings <span class="text-gray-500 font-bold">{{combined}} </span></h1>
                  </div>
                  <ul class="flex jusify-center items-center gap-6">
                       <li class="flex justify-start items-center gap-2 border border-gray-200 rounded-full py-2 px-4 cursor-pointer">

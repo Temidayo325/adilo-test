@@ -8,9 +8,9 @@ import DashboardHeader from './DashboardHeader.vue'
 const data = reactive({
      totalNumber: 25,
      recordings: [
-          {image: "https://i.pravatar.cc/150?img=4", title: "The title which is usualy longer than this and can be annoying", views: 30, size: "1002 kb", last_modified: "1 month ago", id: 1},
-          {image: "https://i.pravatar.cc/150?img=7", title: "The title which is usualy longer than this and can be annoying", views: 30, size: "1002 kb", last_modified: "2 month ago", id: 2},
-          {image: "https://i.pravatar.cc/150?img=8", title: "The title which is usualy longer than this and can be annoying", views: 30, size: "1002 kb", last_modified: "1 week ago", id: 23},
+          {image: "http://localhost:3000/src/assets/forgot.jpg", title: "The title which is usualy longer than this and can be annoying", views: 30, size: "1002 kb", last_modified: "1 month ago", id: 1},
+          {image: "http://localhost:3000/src/assets/easy.jpg", title: "The title which is usualy longer than this and can be annoying", views: 30, size: "1002 kb", last_modified: "2 month ago", id: 2},
+          {image: "http://localhost:3000/src/assets/settings.jpg", title: "The title which is usualy longer than this and can be annoying", views: 30, size: "1002 kb", last_modified: "1 week ago", id: 23},
           {image: "https://i.pravatar.cc/150?img=9", title: "The title which is usualy longer than this and can be annoying", views: 30, size: "1002 kb", last_modified: "2 weeks ago", id: 24},
           // {image: "https://i.pravatar.cc/150?img=10", title: "The title which is usualy longer than this and can be annoying", views: 30, size: "1002 kb", last_modified: "1 month ago", id: 54},
           // {image: "https://i.pravatar.cc/150?img=20", title: "The title which is usualy longer than this and can be annoying", views: 30, size: "1002 kb", last_modified: "4 month ago", id: 12},
@@ -47,23 +47,23 @@ const data = reactive({
 </script>
  <template>
       <main class="bg-white relative py-0 min-h-min relative" v-if="data.screens.filledLibrary">
-          <header class="flex justify-around items-center border-b-2 border-gray-200 py-6 sticky-0">
-               <div class="flex justify-start items-center gap-3">
-                    <div class="outer-circle w-8 h-8 rounded-xl bg-blue-300 flex justify-center items-center">
+          <header class="flex justify-around items-center border-b-2 border-gray-200  sticky-0">
+               <div class="flex justify-start items-center gap-3 py-6">
+                    <div class="outer-circle w-8 h-8 rounded-xl flex justify-center items-center">
                          <div class="inner-circle h-5 w-5 rounded-full bg-white"></div>
                     </div>
                     <h1 class="header font-bold text-2xl inline ">Adilo</h1>
                </div>
                <nav class="flex justify-start gap-10 text-gray-800">
-                    <li><a>Projects</a></li>
-                    <li><a>Tools and App</a></li>
-                    <li><a>Channels</a></li>
-                    <li><a>Contacts</a></li>
-                    <li><a>Analytics</a></li>
-                    <li><a>Settings</a></li>
+                    <li class="py-6"><a>Projects</a></li>
+                    <li class="py-6 relative"><a>Tools and App </a> <span class="text-xl  mx-3 absolute top-4">&#8964;</span></li>
+                    <li class="py-6"><a>Channels</a></li>
+                    <li class="py-6"><a>Contacts</a></li>
+                    <li class="py-6"><a>Analytics</a></li>
+                    <li class="py-6"><a>Settings</a></li>
                </nav>
                <div class="flex justify-start gap-4 items-center">
-                    <p class="font-bold border-r-2 border-gray-200 px-2">Help</p>
+                    <p class="font-bold border-r-2 border-gray-200 px-2 cursor-pointer">Help</p>
                     <div class="flex justify-start gap-3">
                          <img src="https://i.pravatar.cc/150?img=1" alt="user avatar" class="w-12 h-12 rounded-xl cursor-pointer w-12 h-12 ">
                          <div>
@@ -76,13 +76,11 @@ const data = reactive({
           <div class="flex justify-start items-start my-0 h-screen" >
                <section class="bg-blue-100 w-2/12 py-5 border-r-2 border-gray-400 h-full sticky">
                     <ul class="h-full">
-                         <li class="flex justify-start ml-3 py-3 px-3 gap-8 cursor-pointer">
-                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                              </svg>
+                         <li class="flex justify-start ml-3 py-3 px-3 gap-8 cursor-pointer hover:bg-gray-100 rounded-lg mx-2 hover:shadow-sm">
+                              <img src="../assets/video-player.svg" alt="video player icon" class="w-5 h-5"/>
                               <span class="text-md">My Recordings</span>
                          </li>
-                         <li class="flex justify-start ml-3 py-3 px-3 gap-8 cursor-pointer">
+                         <li class="flex justify-start ml-3 py-3 px-3 gap-8 cursor-pointer hover:bg-gray-100 rounded-lg mx-2 hover:shadow-sm">
                               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
                               </svg>
@@ -149,7 +147,10 @@ const data = reactive({
       </main>
       <aside v-if="!data.screens.filledLibrary" class="vid-container py-20 flex justify-center h-screen w-screen">
            <div class="my-4 w-6/12">
-                <p class="text-left font-bold text-gray-700 mx-4 mb-2">Live preview</p>
+                <p class="text-left font-bold text-gray-700  mb-2 flex justify-start items-center"> 
+                     <div class="border border-red-600 rounded-full mr-2 bg-white py-1 px-1">
+                          <div class="w-2 h-2 bg-red-500 rounded-full py-1 px-1"></div>
+                     </div>Live preview</p>
                 <div class="vid-screen mx-auto w-full h-3/4 rounded-lg">
                      <video class="w-full h-full" ref="video" controls autoplay id="video" v-if="data.screens.video"></video>
                 </div>
@@ -162,6 +163,7 @@ const data = reactive({
 <style scoped>
 li{
      list-style: none;
+     cursor: pointer;
 }
 .vid-container
 {
@@ -170,5 +172,9 @@ li{
 .vid-screen
 {
      background-color: #21455E;
+}
+.outer-circle
+{
+     background-color: #FBBD71
 }
 </style>

@@ -2,9 +2,6 @@
 import { ref , reactive, watchEffect } from 'vue'
 import DashboardHeader from './DashboardHeader.vue'
 
-// defineProps({
-//   msg: String
-// });
 const data = reactive({
      totalNumber: 25,
      recordings: [
